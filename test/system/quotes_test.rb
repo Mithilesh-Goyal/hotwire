@@ -4,10 +4,9 @@ class QuotesTest < ApplicationSystemTestCase
 
 
   setup do
-    # We need to order quote as well in the system tests
+    login_as users(:accountant)
     @quote = Quote.ordered.first
   end
-
   test "Showing a quote" do
     visit quotes_path
     click_link @quote.name
